@@ -5,7 +5,7 @@ var app = app || {};
 const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
-ENV.productionApiUrl = 'insert cloud API server URL here';
+ENV.productionApiUrl = 'https://git.heroku.com/ml-ac-single-page.git';
 ENV.developmentApiUrl = 'http://localhost:8080';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
@@ -28,19 +28,18 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
   Book.loadOne = rows => Book.title;
 
-  Book.fetchAll = callback =>
+  Book.fetchAll = (callback) =>
     $.get(`${ENV.apiUrl}/api/v1/books`)
       .then(Book.loadAll)
       .then(callback)
       .catch(errorCallback);
 
-  Book.fetchOne = callback =>
-    $.get(`${ENV.apiUrl}/api/v1/books/:id`)
+  Book.fetchOne = (id) =>
+    $.get(`${ENV.apiUrl}/api/v1/books/` + '/' + id)
       .then(Book.loadOne)
-      .then(callback)
       .catch(errorCallback);
 
 
 
   module.Book = Book;
-})(app)
+})(app);
