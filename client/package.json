@@ -17,6 +17,7 @@
   "dependencies": {
     "babel-minify": "^0.2.0",
     "clean-css-cli": "^4.1.10",
-    "html-minifier": "^3.5.7"
+    "html-minifier": "^3.5.7",
+    "page.js": "^4.13.3"
   }
 }
