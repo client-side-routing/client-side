@@ -49,6 +49,33 @@
         <h2 class="title">Book</h2>
         <ul id="my-book"></ul>
     </section>
+    <section id="form container" class="page">
+
+      <h2 class="view-form">Add Book</h2>
+        <section id="write" class="tab-content">
+          <h1>New Book</h1>
+          <form action="#" id="new-form">
+            <label>
+              <input type="text" id="title" placeholder="Book Title" required>
+            </label>
+            <label>
+              <input type="text" id="author" placeholder="Author Name" required>
+            </label>
+            <label>
+              <input type="text" id="isbn" placeholder="ISBN" required>
+            </label>
+            <label>
+              <input type="text" id="image-url" placeholder="Image URL" required>
+            </label>
+            <label>
+            <textarea id="book-description" placeholder="book-description" rows="6" cols="50" required></textarea>
+              </label>
+          </form>
+        </section>
+        <section id="books" class="tab-content">
+      </section>
+    <input type="submit" value="Submit"> 
+        </section>
   </main>
   <footer>
     <aside class="social-links">
@@ -68,5 +95,12 @@
   <script src="./scripts/models/book.js" type="text/javascript"></script>
   <script src="./scripts/views/book-view.js" type="text/javascript"></script>
   <script src="./scripts/views/error-view.js" type="text/javascript"></script>
+  <script src="./scripts/controllers/routes.js"></script>
 </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.11/handlebars.min.js"></script>
+
+  <!-- Application Resources -->
+  
