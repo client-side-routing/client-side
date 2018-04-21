@@ -6,7 +6,7 @@ const ENV = {};
 
 ENV.isProduction = window.location.protocol === 'https:';
 ENV.productionApiUrl = 'https://git.heroku.com/ml-ac-single-page.git';
-ENV.developmentApiUrl = 'http://localhost:8080';
+ENV.developmentApiUrl = 'http://localhost:3000';
 ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
 (function(module) {
@@ -22,7 +22,7 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   Book.prototype.toHtml = function() {
     let template = Handlebars.compile($('#book-list-template').text());
     return template(this);
-  }
+  };
 
   Book.all = [];
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
@@ -35,9 +35,10 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
       .catch(errorCallback);
 
   Book.fetchOne = (id) =>
-    $.get(`${ENV.apiUrl}/api/v1/books/` + '/' + id)
+    $.get(`${ENV.apiUrl}/api/v1/books/` + id)
       .then(Book.loadOne)
       .catch(errorCallback);
+
 
 
 
