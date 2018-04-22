@@ -1,4 +1,3 @@
-
 if (window.location.protocol.startsWith('https:')) {
   page.base('/client-side-routing');
 }
