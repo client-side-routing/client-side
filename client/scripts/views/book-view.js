@@ -23,6 +23,12 @@ var app = app || {};
     });
   };
 
+  // createBook.init = function() {
+  //   $('.container').hide();
+  //   $('.single-book-view').show();
+
+  // };
+
   module.bookView = bookView;
   module.singleBookView = singleBookView;
 })(app);
