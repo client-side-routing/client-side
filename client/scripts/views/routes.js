@@ -1,6 +1,6 @@
-if (window.location.protocol.startsWith('https:')) {
-  page.base('/client-side-routing');
-}
+// if (window.location.protocol.startsWith('https:')) {
+//   page.base('/client-side-routing');
+// }
 
 page('/*', (ctx, next) => {
   $('.page').hide();

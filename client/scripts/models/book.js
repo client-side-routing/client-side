@@ -26,7 +26,8 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
 
   Book.all = [];
   Book.loadAll = rows => Book.all = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
-  Book.loadOne = rows => Book.title;
+  Book.loadOne = console.log('hello test');
+  //rows => Book.all[0] = rows.sort((a, b) => b.title - a.title).map(book => new Book(book));
 
   Book.fetchAll = (callback) =>
     $.get(`${ENV.apiUrl}/api/v1/books`)
@@ -39,14 +40,16 @@ ENV.apiUrl = ENV.isProduction ? ENV.productionApiUrl : ENV.developmentApiUrl;
   //     .catch(err => console.error(err));
   // };
 
-  Book.fetchOne = (ctx, callback) =>
-    $.get(`${ENV.apiUrl}/api/v1/books/${ctx.params.book_id}`)
-      .then(results => ctx.book = results[0])
+  Book.fetchOne = (ctx, callback) => {
+    $.get(`${ENV.apiUrl}/api/v1/books/:id`)
+      .then(Book.loadOne)
+      //.then(results => ctx.book = results[0])
       .then(callback)
       .catch(errorCallback);
-
+  };
 
 
 
   module.Book = Book;
 })(app);
+//${ctx.params.book_id}
